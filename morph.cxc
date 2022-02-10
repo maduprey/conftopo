@@ -1,0 +1,10 @@
+cd tmp
+open biopython/mol_1.pdb
+open biopython/mol_2.pdb
+del ~ /a
+mmaker #1 to #2
+morph #1,2 frames 60
+coordset #3 1,60
+perframe 'save morph_$1.pdb' frames 60
+wait 60
+exit
