@@ -1,4 +1,4 @@
-"""Perform ChimeraX preprocessing
+"""Perform ChimeraX preprocessing.
 
 1. Deletes everything except for chain A
 2. Performs matchmaker to align proteins
