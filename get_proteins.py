@@ -3,6 +3,11 @@
 import os
 from Bio.PDB import PDBList
 
+# Create directories, if necessary
+if not os.path.exists('tmp'):
+    os.makedirs('tmp/biopython')
+    os.makedirs('tmp/morph')
+
 # Set proteins
 mol_1 = '1cm1'
 mol_2 = '1cfd'
