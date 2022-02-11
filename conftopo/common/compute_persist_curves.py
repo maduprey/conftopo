@@ -5,35 +5,38 @@ import numpy as np
 import persistencecurves as pc
 from Bio.PDB import PDBParser
 from ripser import ripser
- 
+
+
 def compute_persist_curves(file=None, verbose=0):
     """
     Compute persistence curves -- normalized life curves -- using the atomic 
     positions as a point cloud.
-    
+
     Arguments:
         file: A PDB file.
-        
+
     Returns:
         A one-dimensional numpy array containing the concatenated normalized
         life curves for H_0, H_1, and_H_2, corresponding to positions [0, 99],
         [100, 199], and [200, 299], respectively.
     """
-    
+
     parser = PDBParser(PERMISSIVE=1, QUIET=True)
     structure = parser.get_structure(file, file)
-    
+
     # Generate a list of the R^3 coordinates for all of the protein's atoms
     coords = []
     for atom in structure.get_atoms():
         coords.append(list(atom.get_vector()))
     coords = np.array(coords)
-    
+
     # Compute persistent homology
     if len(coords) > 1300:
-        diagram = ripser(coords, maxdim=2, thresh=10, do_cocycles=False, n_perm=1300)['dgms']
+        diagram = ripser(coords, maxdim=2, thresh=10,
+                         do_cocycles=False, n_perm=1300)['dgms']
     else:
-        diagram = ripser(coords, maxdim=2, thresh=10, do_cocycles=False)['dgms']
+        diagram = ripser(coords, maxdim=2, thresh=10,
+                         do_cocycles=False)['dgms']
 
     # Generate persistence curves from diagrams
     d_h0 = pc.Diagram(Dgm=diagram[0], globalmaxdeath=10, inf_policy='remove')
@@ -47,8 +50,9 @@ def compute_persist_curves(file=None, verbose=0):
 
     # Concatenate life curves for a particular conformation
     lc_all = np.concatenate((lc_h0, lc_h1, lc_h2))
-    
+
     # Print progress to console
-    if verbose==1: print(file+': Done')
-    
+    if verbose == 1:
+        print(file+': Done')
+
     return(lc_all)
