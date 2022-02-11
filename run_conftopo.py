@@ -45,7 +45,7 @@ def main():
 
     # Compute L^2 norm
     dist = []
-    for k in range(60):
+    for k in range(len(lcs)):
         dist.append(np.linalg.norm(lcs[0, homology] - lcs[k, homology]))
 
     # Plot
