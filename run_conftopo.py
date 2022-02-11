@@ -1,9 +1,11 @@
 """Generate persistence curves for all PDB files."""
+
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-
 from conftopo.common.compute_persist_curves import compute_persist_curves
+from conftopo.data.get_proteins import get_proteins
+from conftopo.data.chimerax import chimerax
 
 
 def compute_conf_pc(dir=None):
@@ -33,8 +35,11 @@ def compute_conf_pc(dir=None):
 
 
 def main():
+    get_proteins('1klq', '1duj')
+    chimerax()
+    print(os.getcwd())
     lcs = compute_conf_pc('conftopo/data/tmp/morph')
-    
+
     # Compute across H_0, H_1, and H_2
     homology = range(000, 300)
 
@@ -43,12 +48,14 @@ def main():
     for k in range(60):
         dist.append(np.linalg.norm(lcs[0, homology] - lcs[k, homology]))
 
+    # Plot
     plt.subplots(figsize=(12, 6))
     plt.title("$L^2$ norm between persistence curves for conformations)")
     plt.xlabel("Conformation")
     plt.ylabel("$L^2$ norm")
     plt.plot(dist)
-    plt.show()
+    # plt.show()
+    plt.savefig('conftopo/data/graph.png')
 
 
 if __name__ == '__main__':

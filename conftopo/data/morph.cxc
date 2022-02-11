@@ -1,3 +1,4 @@
+pwd
 cd tmp
 open biopython/mol_1.ent
 open biopython/mol_2.ent
