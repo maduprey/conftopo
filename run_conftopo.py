@@ -1,4 +1,5 @@
-"""Generate persistence curves for all PDB files."""
+"""Create plot of L^2 norm between persistence curves of conformation between an
+initial and terminal conformation."""
 
 import os
 import numpy as np
@@ -24,7 +25,6 @@ def compute_conf_pc(dir=None):
     """
 
     # Loop over PDB files in directory
-    # os.chdir(dir)
     n_files = len(os.listdir(dir))
     lcs = np.empty((0, 300), int)
     for i in range(1, n_files+1):
@@ -40,7 +40,6 @@ def main():
 
     get_proteins(mol_1, mol_2)
     chimerax()
-    print(os.getcwd())
     lcs = compute_conf_pc('conftopo/data/tmp/morph')
 
     # Set plotting range to H_0, H_1, and H_2
