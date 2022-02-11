@@ -2,3 +2,4 @@
 .DS_Store
 *.ent
 *.pdb
+__pycache__/

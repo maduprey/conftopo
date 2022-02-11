@@ -6,7 +6,7 @@ import persistencecurves as pc
 from Bio.PDB import PDBParser
 from ripser import ripser
  
-def compute_persist_curves(file=None):
+def compute_persist_curves(file=None, verbose=0):
     """
     Compute persistence curves -- normalized life curves -- using the atomic 
     positions as a point cloud.
@@ -47,4 +47,8 @@ def compute_persist_curves(file=None):
 
     # Concatenate life curves for a particular conformation
     lc_all = np.concatenate((lc_h0, lc_h1, lc_h2))
+    
+    # Print progress to console
+    if verbose==1: print(file+': Done')
+    
     return(lc_all)
