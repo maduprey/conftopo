@@ -3,9 +3,11 @@ initial and terminal conformation."""
 
 import os
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
-import pandas as pd
+import altair as alt
+
 from conftopo.common.compute_persist_curves import compute_persist_curves
 from conftopo.data.get_proteins import get_proteins
 from conftopo.data.chimerax import chimerax
@@ -37,7 +39,7 @@ def compute_conf_pc(dir=None):
 
 
 def main():
-    
+
     mol_1 = st.text_input('Molecule 1', value='1cm1')
     mol_2 = st.text_input('Molecule 2', value='1cfd')
 
@@ -56,7 +58,7 @@ def main():
     for k in range(len(lcs)):
         dist.append(np.linalg.norm(lcs[0, homology] - lcs[k, homology]))
 
-    # # Plot
+    # Plot
     # plt.figure()
     # plt.subplots(figsize=(12, 6))
     # plt.title(
@@ -66,7 +68,16 @@ def main():
     # plt.plot(dist)
     # plt.savefig('conftopo/data/norm_plot_'+mol_1+"_"+mol_2+'.png')
 
-    st.line_chart(dist)
+    data = pd.DataFrame({'value': dist})
+    line_chart = alt.Chart(data.reset_index()).mark_line().encode(
+        x='index',
+        y='value'
+    ).properties(
+        title='$L^2$ norm between persistence curves for conformations '+mol_1+' to '+mol_2
+    )
+
+    st.altair_chart(line_chart, use_container_width=True)
+    # st.line_chart(dist)
 
 
 if __name__ == '__main__':
