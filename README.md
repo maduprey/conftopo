@@ -19,7 +19,8 @@
 1. Run the Docker container:
 
 	```
-	docker run -d conftopo
+	docker run -p 8501:8501 conftopo
 	```
+1. In your browser, navigate to [http://localhost:8501/](http://localhost:8501/)
 
 
