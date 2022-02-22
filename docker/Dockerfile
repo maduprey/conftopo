@@ -1,14 +1,8 @@
-FROM ubuntu:20.04
+FROM maduprey/chimerax:1.3
 
-COPY ucsf-chimerax_1.3ubuntu20.04_amd64.deb /
-
-# Need this to fix a wonky issue with URLS in apt
+# Fix hash sum mismatch issue. For more details, see
+# https://forums.docker.com/t/hash-sum-mismatch-writing-more-data-as-expected/45940/2
 COPY badproxy /etc/apt/apt.conf.d/99fixbadproxy
-
-# Passing in responses that set time-zone to Denver, CO
-RUN apt-get update && printf '2\n47\n47\n' | \ 
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    /ucsf-chimerax_1.3ubuntu20.04_amd64.deb
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
     sudo \
