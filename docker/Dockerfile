@@ -1,12 +1,15 @@
-FROM maduprey/chimerax:1.3
+FROM conftopo_core
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
-    sudo \
-    pip \
-    git
+# Expose port 8501 for Streamlit app (http://localhost:8501/)
+EXPOSE 8501
 
-# Not strictly necessary:
-# Create new non-root user (appuser, UID 1001) and switch to user
-# RUN groupadd -g 1001 appuser && \
-#     useradd -r -m -u 1001 -g appuser appuser
-# USER appuser
+# Add new non-root user
+RUN groupadd -g 1001 appuser && \
+    useradd -r -m -u 1001 -g appuser appuser \
+    && chown -hR appuser:appuser /conftopo/ \
+    && chmod -R 777 /conftopo
+USER appuser
+
+WORKDIR /conftopo
+
+CMD streamlit run run_conftopo.py
