@@ -4,6 +4,8 @@ initial and terminal conformation."""
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import streamlit as st
+import pandas as pd
 from conftopo.common.compute_persist_curves import compute_persist_curves
 from conftopo.data.get_proteins import get_proteins
 from conftopo.data.chimerax import chimerax
@@ -35,8 +37,12 @@ def compute_conf_pc(dir=None):
 
 
 def main():
-    mol_1 = '2e2n'
-    mol_2 = '2e2q'
+    
+    mol_1 = st.text_input('Molecule 1', value='1cm1')
+    mol_2 = st.text_input('Molecule 2', value='1cfd')
+
+    # mol_1 = '1cm1'
+    # mol_2 = '1cfd'
 
     get_proteins(mol_1, mol_2)
     chimerax()
@@ -50,15 +56,17 @@ def main():
     for k in range(len(lcs)):
         dist.append(np.linalg.norm(lcs[0, homology] - lcs[k, homology]))
 
-    # Plot
-    plt.figure()
-    plt.subplots(figsize=(12, 6))
-    plt.title(
-        "$L^2$ norm between persistence curves for conformations "+mol_1+" to "+mol_2)
-    plt.xlabel("Conformation")
-    plt.ylabel("$L^2$ norm")
-    plt.plot(dist)
-    plt.savefig('conftopo/data/norm_plot_'+mol_1+"_"+mol_2+'.png')
+    # # Plot
+    # plt.figure()
+    # plt.subplots(figsize=(12, 6))
+    # plt.title(
+    #     "$L^2$ norm between persistence curves for conformations "+mol_1+" to "+mol_2)
+    # plt.xlabel("Conformation")
+    # plt.ylabel("$L^2$ norm")
+    # plt.plot(dist)
+    # plt.savefig('conftopo/data/norm_plot_'+mol_1+"_"+mol_2+'.png')
+
+    st.line_chart(dist)
 
 
 if __name__ == '__main__':
