@@ -1,4 +1,4 @@
-# conftopo
+# ConfTopo
  Topological changes across protein conformational changes.
 
 ## First time setup

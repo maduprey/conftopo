@@ -1,4 +1,4 @@
-FROM conftopo_core
+FROM maduprey/conftopo-core
 
 # Expose port 8501 for Streamlit app (http://localhost:8501/)
 EXPOSE 8501
