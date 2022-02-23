@@ -12,5 +12,4 @@ def chimerax():
     # to directly call 'chimerax' in place of the actual path
     # TODO: See if we can write the morphed trajectory to a single PDB file
     # Path on macOS: /Applications/ChimeraX-1.2.5.app/Contents/MacOS/ChimeraX
-        subprocess.run(f"/Applications/ChimeraX-1.2.5.app/Contents/MacOS/ChimeraX --nogui conftopo/data/morph.cxc", shell=True)
-    # subprocess.run(f"chimerax --nogui conftopo/data/morph.cxc", shell=True)
+    subprocess.run(f"chimerax --nogui conftopo/data/morph.cxc", shell=True)

@@ -10,7 +10,11 @@
 	```
 	git clone https://github.com/maduprey/conftopo.git
 	```
-1. Start Docker, if not already started.
+1. Start Docker, if not already started. For example, on most Linux distros:
+
+	```
+	systemctl start docker
+	```
 1. Build the Docker image: 
 
 	```
