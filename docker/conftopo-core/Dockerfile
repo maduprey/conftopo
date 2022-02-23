@@ -1,8 +1,5 @@
 FROM maduprey/chimerax:1.3
 
-# Copy in full repository
-COPY . /conftopo
-
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
     python3-pip \
     git
