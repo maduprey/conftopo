@@ -1,7 +1,7 @@
-FROM maduprey/conftopo-core
+FROM maduprey/conftopo-core:latest
 
-# Expose port 8501 for Streamlit app (http://localhost:8501/)
-EXPOSE 8501
+# Copy in full repository
+COPY . /conftopo
 
 # Add new non-root user
 RUN groupadd -g 1001 appuser && \
@@ -11,5 +11,8 @@ RUN groupadd -g 1001 appuser && \
 USER appuser
 
 WORKDIR /conftopo
+
+# Expose port 8501 for Streamlit app (http://localhost:8501/)
+EXPOSE 8501
 
 CMD streamlit run run_conftopo.py
