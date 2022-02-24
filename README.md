@@ -1,6 +1,13 @@
 # ConfTopo
  Topological changes across protein conformational changes.
 
+## TODOs
+- [x] Implement a basic Streamlit app
+- [ ] See if it's possible to generate a single PDB file from ChimeraX
+- [ ] Add input to selectively compute $H_0$, $H_1$, $H_2$
+- [ ] Document repo directory structure
+- [ ] Update `requirements.txt` and add instructions for macOS use to install Python packages 
+
 
 ## Usage
 The preferred method of running is using Docker. However, it is possible to run locally on macOS. Instructions for both approaches are provided.
