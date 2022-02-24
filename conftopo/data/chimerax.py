@@ -6,10 +6,15 @@
 4. Saves each intermediate conformation to a PDB file
 """
 import subprocess
+import platform
+
 
 def chimerax():
-    # Call from terminal (or add from path); in the case of Linux should just be able
-    # to directly call 'chimerax' in place of the actual path
+    # Call ChimeraX from terminal
     # TODO: See if we can write the morphed trajectory to a single PDB file
-    # Path on macOS: /Applications/ChimeraX-1.2.5.app/Contents/MacOS/ChimeraX
-    subprocess.run(f"chimerax --nogui conftopo/data/morph.cxc", shell=True)
+    if platform.system() == 'Darwin':
+        chimerax_path = '/Applications/ChimeraX-1.2.5.app/Contents/MacOS/ChimeraX'
+    else:
+        chimerax_path = 'chimerax'
+    subprocess.run(
+        f'{chimerax_path} --nogui conftopo/data/morph.cxc', shell=True)
