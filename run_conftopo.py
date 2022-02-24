@@ -39,9 +39,18 @@ def compute_conf_pc(dir=None):
 
 
 def main():
+    st.title('ConfTopo')
+    st.text('Topological changes across protein conformational changes')
 
-    mol_1 = st.text_input('Molecule 1', value='1cm1')
-    mol_2 = st.text_input('Molecule 2', value='1cfd')
+    # Sidebar options
+    mol_1 = st.sidebar.text_input('Molecule 1', value='1cm1')
+    mol_2 = st.sidebar.text_input('Molecule 2', value='1cfd')
+    
+    # TODO: This isn't set up yet
+    homology = st.sidebar.multiselect(
+        'Homology groups',
+        ['H_0', 'H_1', 'H_2'],
+        ['H_0', 'H_1', 'H_2'])
 
     # mol_1 = '1cm1'
     # mol_2 = '1cfd'

@@ -34,8 +34,9 @@ git clone https://github.com/maduprey/conftopo.git
 
 ### Local
 
-Assuming all the necessary Python libraries are installed and the repo is the current directory, run Streamlit:
+1. Assuming all the necessary Python libraries are installed and the repo is the current directory, run Streamlit:
 
-```
-streamlit run run_conftopo.py
-```
+	```
+	streamlit run run_conftopo.py
+	```
+1. In your browser, navigate to [http://localhost:8501/](http://localhost:8501/)
