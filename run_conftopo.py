@@ -13,31 +13,6 @@ from conftopo.data.get_proteins import get_proteins
 from conftopo.data.chimerax import chimerax
 
 
-def compute_conf_pc(dir=None):
-    """
-    Compute persistence curves over a full conformational change between two
-    conformations.
-
-    Arguments:
-       file: A directory containing 'm' ordered PDB files of intermediate positions
-       between two conformational states.
-
-    Returns:
-       A 1xm-dimensional numpy array containing the concatenated normalized
-       life curves for H_0, H_1, and_H_2, corresponding to positions [0, 99],
-       [100, 199], and [200, 299], respectively, across the 'm' PDB files.
-    """
-
-    # Loop over PDB files in directory
-    n_files = len(os.listdir(dir))
-    lcs = np.empty((0, 300), int)
-    for i in range(1, n_files+1):
-        lc_all = compute_persist_curves(dir+'/morph_'+str(i)+'.pdb', verbose=1)
-        lcs = np.vstack((lcs, lc_all))
-
-    return(lcs)
-
-
 def main():
     st.title('ConfTopo')
     st.text('Topological changes across protein conformational changes')
@@ -55,9 +30,10 @@ def main():
     # mol_1 = '1cm1'
     # mol_2 = '1cfd'
 
+    # Temporarily commenting out
     get_proteins(mol_1, mol_2)
     chimerax()
-    lcs = compute_conf_pc('conftopo/data/tmp/morph')
+    lcs = compute_persist_curves('conftopo/data/tmp/morph/morph.pdb', verbose=1)
 
     # Set plotting range to H_0, H_1, and H_2
     homology = range(000, 300)

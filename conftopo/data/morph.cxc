@@ -1,10 +1,9 @@
-pwd
+# pwd
 cd tmp
 open biopython/mol_1.ent
 open biopython/mol_2.ent
 del ~ /a
 mmaker #1 to #2
 morph #1,2 frames 60
-coordset #3 1,60; perframe 'save morph/morph_$1.pdb #3' frames 60
-wait 60
+save morph/morph.pdb #3 format pdb allCoordsets true
 exit
