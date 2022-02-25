@@ -7,7 +7,7 @@ from Bio.PDB import PDBParser, Selection
 from ripser import ripser
 
 
-def compute_persist_curves(file=None, verbose=0):
+def compute_persist_curves(file=None, verbose=0, n_perm=1300):
     """
     Compute persistence curves -- normalized life curves -- using the atomic 
     positions as a point cloud.
@@ -18,6 +18,9 @@ def compute_persist_curves(file=None, verbose=0):
 
         verbose: Prints '<Model id=x>: Done' to console, for each completed 
         persistence curve.
+        
+        n_perm: From Ripser, the number of points (atoms) to subsample in a 
+        “greedy permutation.”
 
     Returns:
        A 1xm-dimensional numpy array containing the concatenated normalized
@@ -38,9 +41,9 @@ def compute_persist_curves(file=None, verbose=0):
         coords = np.array(coords)
 
         # Compute persistent homology
-        if len(coords) > 1300:
+        if len(coords) > n_perm:
             diagram = ripser(coords, maxdim=2, thresh=10,
-                             do_cocycles=False, n_perm=1300)['dgms']
+                             do_cocycles=False, n_perm=n_perm)['dgms']
         else:
             diagram = ripser(coords, maxdim=2, thresh=10,
                              do_cocycles=False)['dgms']

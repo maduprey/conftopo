@@ -20,7 +20,8 @@ def main():
     # Sidebar options
     mol_1 = st.sidebar.text_input('Molecule 1', value='1cm1')
     mol_2 = st.sidebar.text_input('Molecule 2', value='1cfd')
-    
+    n_subsamp = st.sidebar.number_input('Number of points to subsample', min_value=1, value=400)
+
     # TODO: This isn't set up yet
     homology = st.sidebar.multiselect(
         'Homology groups',
@@ -33,7 +34,7 @@ def main():
     # Temporarily commenting out
     get_proteins(mol_1, mol_2)
     chimerax()
-    lcs = compute_persist_curves('conftopo/data/tmp/morph/morph.pdb', verbose=1)
+    lcs = compute_persist_curves('conftopo/data/tmp/morph/morph.pdb', verbose=1, n_perm=n_subsamp)
 
     # Set plotting range to H_0, H_1, and H_2
     homology = range(000, 300)
