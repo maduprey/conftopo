@@ -16,7 +16,6 @@ def chimerax():
         If you are running macOS and your version of ChimeraX is not 1.2.5 or it 
         is installed somewhere else, adjust the path below.
     """
-    # TODO: See if we can write the morphed trajectory to a single PDB file
     if platform.system() == 'Darwin':
         chimerax_path = '/Applications/ChimeraX-1.2.5.app/Contents/MacOS/ChimeraX'
     else:

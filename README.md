@@ -3,7 +3,7 @@
 
 ## TODOs
 - [x] Implement a basic Streamlit app
-- [ ] See if it's possible to generate a single PDB file from ChimeraX
+- [x] See if it's possible to generate a single PDB file from ChimeraX
 - [ ] Add input to selectively compute $H_0$, $H_1$, $H_2$
 - [ ] Document repo directory structure
 - [ ] Update `requirements.txt` and add instructions for macOS use to install Python packages 
