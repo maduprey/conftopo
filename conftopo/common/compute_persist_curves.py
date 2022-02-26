@@ -18,7 +18,7 @@ def compute_persist_curves(file=None, verbose=0, n_perm=1300):
 
         verbose: Prints '<Model id=x>: Done' to console, for each completed 
         persistence curve.
-        
+
         n_perm: From Ripser, the number of points (atoms) to subsample in a 
         “greedy permutation.”
 
@@ -71,4 +71,4 @@ def compute_persist_curves(file=None, verbose=0, n_perm=1300):
         if verbose == 1:
             print(str(model)+': Done')
 
-    return(lcs)
+    return lcs

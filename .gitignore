@@ -3,3 +3,4 @@
 *.ent
 *.pdb
 __pycache__/
+conftopo/data/tmp/py3Dmol.html
