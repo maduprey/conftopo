@@ -33,5 +33,5 @@ These usage instructions are written specifically for the repository's author to
 	```
 
 ## DockerHub
-A prebuilt version of this image can be found on [DockerHub](https://hub.docker.com/repository/docker/maduprey/conftopo-core). Or, use `docker pull maduprey/conftopo-core`.
+A prebuilt version of this image can be found on [DockerHub](https://hub.docker.com/r/maduprey/conftopo-core). Or, use `docker pull maduprey/conftopo-core`.
 
