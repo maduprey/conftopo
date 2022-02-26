@@ -2,7 +2,7 @@
  Topological changes across protein conformational changes.
 
 ## Running the app
-ConfTopo runs as a [Streamlit](https://streamlit.io/) app. The preferred method of running the application within a Docker container. However, it is possible to run locally on macOS. Instructions for both approaches are provided.
+ConfTopo runs as a [Streamlit](https://streamlit.io/) app. The preferred method of running the application is within a Docker container. However, it is possible to run locally on macOS. Instructions for both approaches are provided.
 
 Regardless of the approach taken, it is first necessary to clone this repository:
 ```
