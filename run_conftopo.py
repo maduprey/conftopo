@@ -6,7 +6,7 @@ from re import A
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import py3Dmol                  # Need to add to requirements
+import py3Dmol
 import streamlit as st
 import altair as alt
 
@@ -77,6 +77,11 @@ def main():
         st.subheader('Persistence Curves')
         # Add an empty slot first so that the slider can appear below the plot
         pc_plot = st.empty()
+        st.caption(
+            """
+            Concatenated normalized life curves for H_0, H_1, and_H_2, respectively.
+            """
+        )
 
         idx = st.slider('Conformation index', 0, 60, 0,
                         help='**Initial conformation**: `index=0`; **Terminal conformation**: `index=60`')
@@ -105,17 +110,21 @@ def main():
         )
         st.altair_chart(line_chart, use_container_width=True)
         st.caption(
-            "L2 norm between the initial molecule's persistence curves and intermediate conformations persistence curves.")
+            """
+            L2 norm between the initial molecule's persistence curves and 
+            intermediate conformations persistence curves.
+            """
+        )
 
     st.subheader('Conformation')
     # Adding py3Dmol visualization of the selected conformation
     viewer = py3Dmol.view(width=400, height=400)
     viewer.setBackgroundColor(0x0f1116)
-    viewer.setCameraParameters({'fov': '50', 'z': 150})
+    viewer.setCameraParameters({'fov':45, 'z':150})
 
     viewer.addModelsAsFrames(
         open('conftopo/data/tmp/morph/morph.pdb', 'r').read(), 'pdb')
-    viewer.setStyle({'cartoon': {'arrows': 'true'}})
+    viewer.setStyle({'cartoon': {'arrows':'true'}})
     viewer.setFrame(idx)
     viewer.update()
     viewer.zoomTo()

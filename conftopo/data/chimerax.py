@@ -13,11 +13,11 @@ def chimerax():
     """
     Call ChimeraX from terminal.
     Note: 
-        If you are running macOS and your version of ChimeraX is not 1.2.5 or it 
+        If you are running macOS and your version of ChimeraX is not 1.3 or it 
         is installed somewhere else, adjust the path below.
     """
     if platform.system() == 'Darwin':
-        chimerax_path = '/Applications/ChimeraX-1.2.5.app/Contents/MacOS/ChimeraX'
+        chimerax_path = '/Applications/ChimeraX-1.3.app/Contents/MacOS/ChimeraX'
     else:
         chimerax_path = 'chimerax'
     subprocess.run(
