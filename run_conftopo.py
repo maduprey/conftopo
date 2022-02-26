@@ -19,25 +19,26 @@ def main():
         """
         Primary function to compute all persistence curves.
         """
-        
+
         get_proteins(mol_1, mol_2)
         chimerax()
         lcs = compute_persist_curves(
             'conftopo/data/tmp/morph/morph.pdb', verbose=1, n_perm=n_subsamp)
         return lcs
-    
+
     # Streamlit app
-    st.set_page_config(layout='wide')
+    st.set_page_config(page_title='ConfTopo',
+                       page_icon=':doughnut:', layout='wide')
     st.title('ConfTopo')
     st.write('Topological changes across protein conformational changes')
-    
+
     # about_expander = st.expander(label='About')
     # with about_expander:
     #     'TODO: Insert description here.'
-    
+
     # Sidebar options
-    mol_1 = st.sidebar.text_input('Molecule 1', value='1cm1')
-    mol_2 = st.sidebar.text_input('Molecule 2', value='1cfd')
+    mol_1 = st.sidebar.text_input('Molecule 1', value='1cm1', help='Initial conformation')
+    mol_2 = st.sidebar.text_input('Molecule 2', value='1cfd', help='Terminal conformation')
     n_subsamp = st.sidebar.number_input(
         'Number of atoms to subsample', min_value=0, value=400)
     homology_input = st.sidebar.multiselect(
@@ -56,17 +57,18 @@ def main():
         homology.extend(list(range(100, 200)))
     if 'H_2' in homology_input:
         homology.extend(list(range(200, 300)))
-        
+
     # Set up two-column layout
     col1, col2 = st.columns(2)
-    
+
     with col1:
         st.header('Persistence Curves')
-        
+
         # Add an empty slot first so that the slider can appear below the plot
         pc_plot = st.empty()
-        
-        idx = st.slider('Conformation index', 0, 60, 0)
+
+        idx = st.slider('Conformation index', 0, 60, 0, 
+                        help='**Initial conformation**: `index=0`; **Terminal conformation**: `index=60`')
         conf_pd = pd.DataFrame({'value': lcs[idx, homology]})
         line_chart = alt.Chart(conf_pd.reset_index()).mark_line().encode(
             x='index',
@@ -78,12 +80,11 @@ def main():
 
     with col2:
         st.header('L2 Norm')
-        
         # Compute L^2 norm
         dist = []
         for k in range(len(lcs)):
             dist.append(np.linalg.norm(lcs[0, homology] - lcs[k, homology]))
-            
+
         dist_pd = pd.DataFrame({'value': dist})
         line_chart = alt.Chart(dist_pd.reset_index()).mark_line().encode(
             x='index',
@@ -92,7 +93,8 @@ def main():
             # title='L^2 norm between persistence curves for conformations '+mol_1+' to '+mol_2
         )
         st.altair_chart(line_chart, use_container_width=True)
-        
+        st.caption("L2 norm between the initial molecule's persistence curves and intermediate conformations persistence curves.")
+
 
 if __name__ == '__main__':
     main()
