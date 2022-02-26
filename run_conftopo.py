@@ -2,6 +2,7 @@
 initial and terminal conformation."""
 
 import os
+from re import A
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -29,12 +30,19 @@ def main():
     # Streamlit app
     st.set_page_config(page_title='ConfTopo',
                        page_icon=':doughnut:', layout='wide')
-    st.sidebar.title('ConfTopo')
+    st.sidebar.title(':doughnut: ConfTopo')
     st.sidebar.write('Topological changes across protein conformational changes')
     st.sidebar.write('##')
-    # about_expander = st.expander(label='About')
-    # with about_expander:
-    #     'TODO: Insert description here.'
+    about_expander = st.expander(label='About')
+    with about_expander:
+        st.write(''' 
+                    Example conformational changes:\n
+                    * `1am1` - `2cg9` \n
+                    * `1cfd` - `1cll` \n
+                    * `1t5s` - `3b9b` \n
+                    * `2e2n` - `2e2q`
+                ''' 
+        )
 
     # Sidebar options
     mol_1 = st.sidebar.text_input('Molecule 1', value='1cm1', help='Initial conformation')
