@@ -34,7 +34,7 @@ git clone https://github.com/maduprey/conftopo.git
 ## Local
 
 ### Setup
-1. [Download](https://www.cgl.ucsf.edu/chimerax/download.html) and install UCSF ChimeraX 1.3. The app expects ChimeraX executable to be located in `/Applications/ChimeraX-1.3.app/Contents/MacOS/ChimeraX`. If you are running macOS and your version of ChimeraX is not 1.3 or it is installed somewhere else, you'll need to edit the path in the `chimerax.py` file.
+1. [Download](https://www.cgl.ucsf.edu/chimerax/download.html) and install UCSF ChimeraX 1.3. The app expects the ChimeraX executable to be located in `/Applications/ChimeraX-1.3.app/Contents/MacOS/ChimeraX`. If running macOS and a a version of ChimeraX other than 1.3 or it is installed somewhere else, you'll need to edit the path in the `chimerax.py` file.
 
 1. `cd` into this repository.
 1. Using [conda](https://docs.conda.io/), create and activate a virtual environment `conftopo` with pip installed:
