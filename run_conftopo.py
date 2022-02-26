@@ -29,9 +29,9 @@ def main():
     # Streamlit app
     st.set_page_config(page_title='ConfTopo',
                        page_icon=':doughnut:', layout='wide')
-    st.title('ConfTopo')
-    st.write('Topological changes across protein conformational changes')
-
+    st.sidebar.title('ConfTopo')
+    st.sidebar.write('Topological changes across protein conformational changes')
+    st.sidebar.write('##')
     # about_expander = st.expander(label='About')
     # with about_expander:
     #     'TODO: Insert description here.'
@@ -62,7 +62,7 @@ def main():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.header('Persistence Curves')
+        st.subheader('Persistence Curves')
 
         # Add an empty slot first so that the slider can appear below the plot
         pc_plot = st.empty()
@@ -79,7 +79,7 @@ def main():
         pc_plot.altair_chart(line_chart, use_container_width=True)
 
     with col2:
-        st.header('L2 Norm')
+        st.subheader('L2 Norm')
         # Compute L^2 norm
         dist = []
         for k in range(len(lcs)):
