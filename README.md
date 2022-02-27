@@ -1,5 +1,6 @@
 # ConfTopo
 ![conftopo-core-docker](https://github.com/maduprey/conftopo/actions/workflows/conftopo-core-docker.yml/badge.svg)
+
  Topological changes across protein conformational changes.
 
 ## Running the app
