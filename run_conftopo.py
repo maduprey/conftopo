@@ -39,18 +39,16 @@ def main():
     with about_expander:
         st.write(''' 
                     Try conformational changes:\n
-                    * `1am1` - `2cg9` \n
-                    * `1cfd` - `1cll` \n
-                    * `1t5s` - `3b9b` \n
-                    * `2e2n` - `2e2q`
-                '''
-                 )
+                    * Calmodulin: `1cll` &rarr; `1ctr` \n
+                    * AdK: `1ake` &rarr; `4ake` \n
+                    * GroEL: `1ss8` &rarr; `1sx4`
+                ''')
 
     # Sidebar options
     mol_1 = st.sidebar.text_input(
-        'Molecule 1', value='1cm1', help='Initial conformation')
+        'Molecule 1', value='1cm1', help='Initial conformation PDB code')
     mol_2 = st.sidebar.text_input(
-        'Molecule 2', value='1cfd', help='Terminal conformation')
+        'Molecule 2', value='1cfd', help='Terminal conformation PDB code')
     n_subsamp = st.sidebar.number_input(
         'Number of atoms to subsample', min_value=0, value=400)
     homology_input = st.sidebar.multiselect(
