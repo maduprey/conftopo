@@ -6,10 +6,11 @@ on:
       - 'requirements.txt'
 
 jobs:
-  docker:
-    name: Docker job
+  docker: 
     runs-on: ubuntu-latest
+    name: Docker job
     steps:
+      -
         name: Checkout
         uses: actions/checkout@v2
       -
