@@ -1,4 +1,6 @@
 # conftopo-core
+![conftopo-core-docker](https://github.com/maduprey/conftopo/actions/workflows/conftopo-core-docker.yml/badge.svg)
+
 A Docker image for the core components of ConfTopo.
 
 * Ubuntu 20.04 with ChimeraX as base image
