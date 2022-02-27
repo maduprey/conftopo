@@ -59,11 +59,14 @@ packaging==21.3
 pandas==1.4.1
 pandocfilters==1.5.0
 parso==0.8.3
+patsy==0.5.2
 persim==0.3.1
 persistencecurves @ git+https://github.com/azlawson/PersistenceCurves.git@0ca87194df27d0a4a913bc5fd55ab69a08f5cba4
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==9.0.1
+plotly==5.6.0
+plotly-express==0.4.1
 prometheus-client==0.13.1
 prompt-toolkit==3.0.28
 protobuf==3.19.4
@@ -91,8 +94,10 @@ Send2Trash==1.8.0
 six==1.16.0
 smmap==5.0.0
 stack-data==0.2.0
+statsmodels==0.13.2
 streamlit==1.6.0
 tadasets==0.0.4
+tenacity==8.0.1
 terminado==0.13.1
 testpath==0.6.0
 threadpoolctl==3.1.0
