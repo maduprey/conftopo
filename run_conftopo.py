@@ -1,6 +1,3 @@
-"""Create plot of L^2 norm between persistence curves of conformation between an
-initial and terminal conformation."""
-
 import os
 from re import A
 import numpy as np
