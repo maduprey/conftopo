@@ -4,9 +4,9 @@
  Topological changes across protein conformational changes.
 
 ## Running the app
-ConfTopo runs as a [Streamlit](https://streamlit.io/) app. The preferred method of running the application is within a Docker container. However, it is possible to run locally on macOS. Instructions for both approaches are provided.
+ConfTopo runs as a [Streamlit](https://streamlit.io/) app. The preferred method of running the application is within a Docker container. Optionally, instructions are provided for running locally on macOS. 
 
-Regardless of the approach taken, it is first necessary to clone this repository:
+Regardless of the execution modality, first clone this repository:
 ```
 git clone https://github.com/maduprey/conftopo.git
 ```
@@ -15,10 +15,10 @@ git clone https://github.com/maduprey/conftopo.git
 
 ### Setup
 1. Install [Docker](https://www.docker.com/).
-1. `cd` into this repository.
+1. `cd` into the repository.
 
 ### Usage
-1. Start Docker, if not already started. For example, on most Linux distros:
+1. Start Docker. For example, on most Linux distros:
 	```
 	systemctl start docker
 	```
@@ -36,7 +36,7 @@ git clone https://github.com/maduprey/conftopo.git
 ## Local
 
 ### Setup
-1. [Download](https://www.cgl.ucsf.edu/chimerax/download.html) and install UCSF ChimeraX 1.3. The app expects the ChimeraX executable to be located in `/Applications/ChimeraX-1.3.app/Contents/MacOS/ChimeraX`. If running macOS and a a version of ChimeraX other than 1.3 or it is installed somewhere else, you'll need to edit the path in the `chimerax.py` file.
+1. [Download](https://www.cgl.ucsf.edu/chimerax/download.html) and install UCSF ChimeraX 1.3. If the ChimeraX executable is installed somewhere else, edit the path `/Applications/ChimeraX-1.3.app/Contents/MacOS/ChimeraX` in `chimerax.py`.
 
 1. `cd` into this repository.
 1. Using [conda](https://docs.conda.io/), create and activate a virtual environment `conftopo` with pip installed:
