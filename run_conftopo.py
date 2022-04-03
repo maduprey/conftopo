@@ -106,7 +106,7 @@ def main():
         st.caption(
             """
             L2 norm between the initial molecule's persistence curves and 
-            intermediate conformations persistence curves.
+            intermediate conformations' persistence curves.
             """
         )
 

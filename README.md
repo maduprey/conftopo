@@ -1,7 +1,10 @@
 # ConfTopo
 ![conftopo-core-docker](https://github.com/maduprey/conftopo/actions/workflows/conftopo-core-docker.yml/badge.svg)
 
+ ![ConfTopo](/imgs/conftopo_calmodulin.png)
+
  Topological changes across protein conformational changes.
+
 
 ## Running the app
 ConfTopo runs as a [Streamlit](https://streamlit.io/) app. The preferred method of running the application is within a Docker container. Optionally, instructions are provided for running locally on macOS. 
