@@ -3,7 +3,7 @@
 
  ![ConfTopo](/imgs/conftopo_calmodulin.png)
 
- Topological changes across protein conformational changes.
+ Explore topological changes across protein conformational changes.
 
 
 ## Running the app
