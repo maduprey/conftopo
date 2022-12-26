@@ -45,7 +45,7 @@ git clone https://github.com/maduprey/conftopo.git
 1. Using [conda](https://docs.conda.io/), create and activate a virtual environment `conftopo` with pip installed:
 	```
 	conda create -n conftopo python=3.8
-	# Accept any new packages that will be installed
+	y # Accept any new packages that will be installed
 	conda activate conftopo
 	```
 1. Install the required Python packages:
