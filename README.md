@@ -39,14 +39,14 @@ git clone https://github.com/maduprey/conftopo.git
 ## Local
 
 ### Setup
-1. [Download](https://www.cgl.ucsf.edu/chimerax/download.html) and install UCSF ChimeraX 1.3. If the ChimeraX executable is installed somewhere else, edit the path `/Applications/ChimeraX-1.3.app/Contents/MacOS/ChimeraX` in `chimerax.py`.
+1. [Download](https://www.cgl.ucsf.edu/chimerax/download.html) and install UCSF ChimeraX 1.5. If the ChimeraX executable is installed somewhere else, edit the path `/Applications/ChimeraX-1.5.app/Contents/MacOS/ChimeraX` in `chimerax.py`.
 
 1. `cd` into this repository.
 1. Using [conda](https://docs.conda.io/), create and activate a virtual environment `conftopo` with pip installed:
 	```
 	conda create -n conftopo python=3.8
+	# Accept any new packages that will be installed
 	conda activate conftopo
-	conda install pip
 	```
 1. Install the required Python packages:
 	```
@@ -58,4 +58,4 @@ git clone https://github.com/maduprey/conftopo.git
 	```
 	streamlit run run_conftopo.py
 	```
-1. In your browser, navigate to [http://localhost:8501/](http://localhost:8501/)
+1. In your browser, navigate to [http://localhost:8502/](http://localhost:8502/)

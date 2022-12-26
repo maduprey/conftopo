@@ -17,8 +17,9 @@ def chimerax():
         is installed somewhere else, adjust the path below.
     """
     if platform.system() == 'Darwin':
-        chimerax_path = '/Applications/ChimeraX-1.3.app/Contents/MacOS/ChimeraX'
+        chimerax_path = '/Applications/ChimeraX-1.5.app/Contents/MacOS/ChimeraX'
     else:
         chimerax_path = 'chimerax'
     subprocess.run(
-        f'{chimerax_path} --nogui conftopo/data/morph.cxc', shell=True)
+        f'{chimerax_path} --nogui conftopo/data/morph.cxc', shell=True
+    )
