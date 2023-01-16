@@ -64,7 +64,7 @@ def compute_persist_curves(file=None, verbose=0, n_perm=1300):
         # Concatenate life curves for a particular conformation
         lc_all = np.concatenate((lc_h0, lc_h1, lc_h2))
 
-        # Accumulate life curves for all conformations
+        # Aggregate life curves for all conformations
         lcs = np.vstack((lcs, lc_all))
 
         # Print progress to console
