@@ -59,3 +59,15 @@ git clone https://github.com/maduprey/conftopo.git
 	streamlit run run_conftopo.py
 	```
 1. In your browser, navigate to [http://localhost:8502/](http://localhost:8502/)
+
+## Contributing
+
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+
+## License
+
+`conftopo` was created by Michael Duprey. It is licensed under the terms of the MIT license.
+
+## Credits
+
+`conftopo` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).

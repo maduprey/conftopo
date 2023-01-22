@@ -22,7 +22,7 @@ def main():
         get_proteins(mol_1, mol_2)
         chimerax()
         lcs = compute_persist_curves(
-            'conftopo/data/tmp/morph/morph.pdb', verbose=1, n_perm=n_subsamp)
+            'src/conftopo/data/tmp/morph/morph.pdb', verbose=1, n_perm=n_subsamp)
         return lcs
 
     # Streamlit app
@@ -118,7 +118,7 @@ def main():
     viewer.setCameraParameters({'fov':45, 'z':150})
 
     viewer.addModelsAsFrames(
-        open('conftopo/data/tmp/morph/morph.pdb', 'r').read(), 'pdb')
+        open('src/conftopo/data/tmp/morph/morph.pdb', 'r').read(), 'pdb')
     viewer.setStyle({'cartoon': {'arrows':'true'}})
     viewer.setFrame(idx)
     viewer.update()
@@ -126,13 +126,13 @@ def main():
     viewer.render()
 
     t = viewer.js()
-    f = open('conftopo/data/tmp/py3Dmol.html', 'w')
+    f = open('src/conftopo/data/tmp/py3Dmol.html', 'w')
     f.write(t.startjs)
     f.write(t.endjs)
     f.close()
 
     st.components.v1.html(
-        open('conftopo/data/tmp/py3Dmol.html', 'r').read(), width=400, height=400)
+        open('src/conftopo/data/tmp/py3Dmol.html', 'r').read(), width=400, height=400)
 
 
 if __name__ == '__main__':
