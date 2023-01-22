@@ -22,15 +22,15 @@ git clone https://github.com/maduprey/conftopo.git
 
 ### Usage
 1. Start Docker. For example, on most Linux distros:
-	```
+	```bash
 	systemctl start docker
 	```
 1. Build the Docker image: 
-	```
+	```bash
 	docker build -f docker/Dockerfile -t conftopo .
 	```
 1. Run the Docker container:
-	```
+	```bash
 	docker run -p 8501:8501 conftopo
 	```
 1. In your browser, navigate to the Streamlit app at [http://localhost:8501/](http://localhost:8501/)
@@ -43,19 +43,19 @@ git clone https://github.com/maduprey/conftopo.git
 
 1. `cd` into this repository.
 1. Using [conda](https://docs.conda.io/), create and activate a virtual environment `conftopo` with pip installed:
-	```
+	```bash
 	conda create -n conftopo python=3.8
 	y # Accept any new packages that will be installed
 	conda activate conftopo
 	```
 1. Install the required Python packages:
-	```
+	```bash
 	pip install -r requirements.txt
 	```
 
 ### Usage
 1. Start the Streamlit app:
-	```
+	```bash
 	streamlit run run_conftopo.py
 	```
 1. In your browser, navigate to [http://localhost:8502/](http://localhost:8502/)
