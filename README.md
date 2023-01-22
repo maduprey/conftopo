@@ -50,7 +50,8 @@ git clone https://github.com/maduprey/conftopo.git
 	```
 1. Install the required Python packages:
 	```bash
-	pip install -r requirements.txt
+	poetry install
+	pip install streamlit==1.16.0
 	```
 
 ### Usage
