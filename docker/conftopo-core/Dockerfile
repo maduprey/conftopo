@@ -1,4 +1,4 @@
-FROM maduprey/chimerax:1.3
+FROM maduprey/chimerax:1.5
 
 COPY /requirements.txt /requirements.txt
 
