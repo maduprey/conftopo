@@ -3,5 +3,5 @@
 *.ent
 *.pdb
 __pycache__/
-conftopo/data/tmp/py3Dmol.html
+src/conftopo/data/tmp/py3Dmol.html
 docker/docker_scratchpad.txt

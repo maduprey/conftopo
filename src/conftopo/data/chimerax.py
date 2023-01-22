@@ -13,7 +13,7 @@ def chimerax():
     """
     Call ChimeraX from terminal.
     Note: 
-        If you are running macOS and your version of ChimeraX is not 1.3 or it 
+        If you are running macOS and your version of ChimeraX is not 1.5 or it 
         is installed somewhere else, adjust the path below.
     """
     if platform.system() == 'Darwin':
@@ -21,5 +21,5 @@ def chimerax():
     else:
         chimerax_path = 'chimerax'
     subprocess.run(
-        f'{chimerax_path} --nogui conftopo/data/morph.cxc', shell=True
+        f'{chimerax_path} --nogui src/conftopo/data/morph.cxc', shell=True
     )
