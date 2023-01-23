@@ -11,6 +11,7 @@ from conftopo.compute_persist_curves import compute_persist_curves
 from conftopo.data.get_proteins import get_proteins
 from conftopo.data.chimerax import chimerax
 
+# PATH = 'src/conftopo/data/tmp'
 
 def main():
     @st.cache(suppress_st_warning=True, show_spinner=False)
@@ -19,7 +20,7 @@ def main():
         Primary function to compute all persistence curves.
         """
 
-        get_proteins(mol_1, mol_2)
+        get_proteins(mol_1, mol_2, path='src/conftopo/data/tmp/biopython')
         chimerax()
         lcs = compute_persist_curves(
             'src/conftopo/data/tmp/morph/morph.pdb', verbose=1, n_perm=n_subsamp)
