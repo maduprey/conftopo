@@ -44,9 +44,9 @@ def main():
 
     # Sidebar options
     mol_1 = st.sidebar.text_input(
-        'Molecule 1', value='1cm1', help='Initial conformation PDB code')
+        'Molecule 1', value='1cll', help='Initial conformation PDB code')
     mol_2 = st.sidebar.text_input(
-        'Molecule 2', value='1cfd', help='Terminal conformation PDB code')
+        'Molecule 2', value='1ctr', help='Terminal conformation PDB code')
     n_subsamp = st.sidebar.number_input(
         'Number of atoms to subsample', min_value=0, value=400)
     homology_input = st.sidebar.multiselect(
