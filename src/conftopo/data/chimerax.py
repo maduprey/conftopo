@@ -7,6 +7,7 @@
 """
 import subprocess
 import platform
+import os
 
 
 def chimerax():
@@ -16,6 +17,10 @@ def chimerax():
         If you are running macOS and your version of ChimeraX is not 1.5 or it 
         is installed somewhere else, adjust the path below.
     """
+    # Create directory, if necessary
+    if not os.path.exists('src/conftopo/data/tmp/morph'):
+        os.makedirs('src/conftopo/data/tmp/morph')
+
     if platform.system() == 'Darwin':
         chimerax_path = '/Applications/ChimeraX-1.5.app/Contents/MacOS/ChimeraX'
     else:
