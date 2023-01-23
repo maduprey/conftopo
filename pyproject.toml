@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "conftopo"
+version = "0.1.0"
+description = "Explore topological changes across protein conformational changes."
+authors = ["Michael Duprey"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.9.7 || >3.9.7"
+numpy = "1.24.1"
+pandas = "1.5.2"
+matplotlib = "3.5.1"
+biopython = "1.79"
+scikit-tda = "^1.0.0"
+py3dmol = "^2.0.0.post2"
+persistencecurves = {git = "https://github.com/azlawson/PersistenceCurves.git"}
+ipython = "8.1.0"
+ipykernel = "6.9.1"
+ipython-genutils = "0.2.0"
+ipywidgets = "7.6.5"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

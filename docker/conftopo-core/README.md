@@ -22,15 +22,15 @@ These usage instructions are written specifically for the repository's author to
 
 1. `cd` into the `conftopo` root directory.
 1. Start Docker, if not already started. For example, on most Linux distros:
-	```
+	```bash
 	systemctl start docker
 	```
 1. Build the Docker image: 
-	```
+	```bash
 	docker build -f docker/conftopo-core/Dockerfile -t maduprey/conftopo-core .
 	```
 1. Push the image to DockerHub:
-	```
+	```bash
 	docker push maduprey/conftopo-core:latest
 	```
 

@@ -3,6 +3,6 @@
 *.ent
 *.pdb
 __pycache__/
-conftopo/data/tmp/py3Dmol.html
+py3Dmol.html
 docker/docker_scratchpad.txt
-src/conftopo/data/tmp/py3Dmol.html
+.coverage

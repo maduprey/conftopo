@@ -7,10 +7,11 @@ import py3Dmol
 import streamlit as st
 import altair as alt
 
-from conftopo.common.compute_persist_curves import compute_persist_curves
+from conftopo.compute_persist_curves import compute_persist_curves
 from conftopo.data.get_proteins import get_proteins
 from conftopo.data.chimerax import chimerax
 
+# PATH = 'src/conftopo/data/tmp'
 
 def main():
     @st.cache(suppress_st_warning=True, show_spinner=False)
@@ -19,10 +20,10 @@ def main():
         Primary function to compute all persistence curves.
         """
 
-        get_proteins(mol_1, mol_2)
+        get_proteins(mol_1, mol_2, path='src/conftopo/data/tmp/biopython')
         chimerax()
         lcs = compute_persist_curves(
-            'conftopo/data/tmp/morph/morph.pdb', verbose=1, n_perm=n_subsamp)
+            'src/conftopo/data/tmp/morph/morph.pdb', verbose=1, n_perm=n_subsamp)
         return lcs
 
     # Streamlit app
@@ -43,9 +44,9 @@ def main():
 
     # Sidebar options
     mol_1 = st.sidebar.text_input(
-        'Molecule 1', value='1cm1', help='Initial conformation PDB code')
+        'Molecule 1', value='1cll', help='Initial conformation PDB code')
     mol_2 = st.sidebar.text_input(
-        'Molecule 2', value='1cfd', help='Terminal conformation PDB code')
+        'Molecule 2', value='1ctr', help='Terminal conformation PDB code')
     n_subsamp = st.sidebar.number_input(
         'Number of atoms to subsample', min_value=0, value=400)
     homology_input = st.sidebar.multiselect(
@@ -118,7 +119,7 @@ def main():
     viewer.setCameraParameters({'fov':45, 'z':150})
 
     viewer.addModelsAsFrames(
-        open('conftopo/data/tmp/morph/morph.pdb', 'r').read(), 'pdb')
+        open('src/conftopo/data/tmp/morph/morph.pdb', 'r').read(), 'pdb')
     viewer.setStyle({'cartoon': {'arrows':'true'}})
     viewer.setFrame(idx)
     viewer.update()
@@ -126,13 +127,13 @@ def main():
     viewer.render()
 
     t = viewer.js()
-    f = open('conftopo/data/tmp/py3Dmol.html', 'w')
+    f = open('src/conftopo/data/tmp/py3Dmol.html', 'w')
     f.write(t.startjs)
     f.write(t.endjs)
     f.close()
 
     st.components.v1.html(
-        open('conftopo/data/tmp/py3Dmol.html', 'r').read(), width=400, height=400)
+        open('src/conftopo/data/tmp/py3Dmol.html', 'r').read(), width=400, height=400)
 
 
 if __name__ == '__main__':
