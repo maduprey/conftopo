@@ -7,7 +7,7 @@ import py3Dmol
 import streamlit as st
 import altair as alt
 
-from conftopo.common.compute_persist_curves import compute_persist_curves
+from conftopo.compute_persist_curves import compute_persist_curves
 from conftopo.data.get_proteins import get_proteins
 from conftopo.data.chimerax import chimerax
 
